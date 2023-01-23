@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <title>jspdf</title>
+  </head>
+  <body></body>
+  <script>
+    const doc = new jsPDF();
+    doc.text("Hello world!", 10, 10);
+    doc.setFontSize(12);
+    doc.text("yo yo", 180, 10);
+    doc.line(10, 12, 10, 50);
+
+    var string = doc.output("datauristring");
+    var iframe =
+      "<iframe width='100%' height='100%' src='" + string + "'></iframe>";
+    var x = window.open();
+    x.document.open();
+    x.document.write(iframe);
+    x.document.close();
+  </script>
+</html>
